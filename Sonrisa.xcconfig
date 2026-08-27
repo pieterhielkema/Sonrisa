@@ -1,0 +1,38 @@
+//
+//  Sonrisa.xcconfig
+//  Sonrisa
+//
+//  Build settings required to embed Chromium (CEF) in the Sonrisa app target.
+//  Attach this file to the Sonrisa target for both Debug and Release:
+//    Project editor → Sonrisa (project) → Info → Configurations →
+//    expand Debug and Release → set the "Sonrisa" *target* row's
+//    "Based on Configuration File" to "Sonrisa".
+//
+
+// Bridge the Objective-C++ CEF layer into Swift.
+SWIFT_OBJC_BRIDGING_HEADER = Sonrisa/Sonrisa-Bridging-Header.h
+
+// Find CEF's `include/...` headers and the app's own "CEF/..." headers.
+HEADER_SEARCH_PATHS = $(inherited) $(SRCROOT)/third_party/cef $(SRCROOT)/Sonrisa
+
+// Link the prebuilt CEF C++ wrapper; the framework itself is loaded at runtime.
+OTHER_LDFLAGS = $(inherited) "$(SRCROOT)/third_party/cef/build/libcef_dll_wrapper/libcef_dll_wrapper.a" -framework IOSurface
+
+CLANG_CXX_LANGUAGE_STANDARD = gnu++20
+
+// The prebuilt libcef_dll_wrapper.a is a Release build (NDEBUG), so CEF's
+// DCHECK-gated refcount bookkeeping fields (in_dtor_ etc.) do NOT exist in
+// objects the wrapper allocates. App TUs must compile CEF headers with the
+// SAME DCHECK state, or inlined AddRef/Release read past the real object
+// (random "Check failed: !in_dtor_" FATALs when browsers/routers destruct).
+// DEBUG=1 stays inherited for Debug builds; NDEBUG only affects C-family
+// TUs (assert/DCHECK), not Swift.
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) NDEBUG=1
+
+// CEF's multi-process model and out-of-bundle framework load are incompatible
+// with the macOS App Sandbox and Hardened Runtime for local development.
+ENABLE_APP_SANDBOX = NO
+ENABLE_HARDENED_RUNTIME = NO
+
+// Allows any future run-script phases to touch the CEF tree.
+ENABLE_USER_SCRIPT_SANDBOXING = NO

@@ -1,0 +1,15 @@
+# CEF binary distribution (~350 MB) — re-download via cef-builds.spotifycdn.com
+third_party/cef/
+
+# Compiled helper binary (rebuilt by scripts/embed_cef.sh)
+helper/build/
+
+# Xcode
+DerivedData/
+xcuserdata/
+
+# macOS
+.DS_Store
+
+# Profiling artifacts
+*.profraw
