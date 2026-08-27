@@ -3,6 +3,8 @@
 A lightweight Chromium-based browser for macOS (Apple Silicon), built with
 SwiftUI and the [Chromium Embedded Framework](https://github.com/chromiumembedded/cef).
 
+![Sonrisa](docs/screenshot.png)
+
 Tabs, tab groups, favorites, history, downloads, passwords, autofill, ad
 blocking, incognito, DevTools, bookmark import, and configurable search
 engines — in a ~330 MB app.
