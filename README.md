@@ -14,7 +14,7 @@ engines — in a ~330 MB app.
 Requirements: macOS on Apple Silicon, Xcode, CMake.
 
 ```sh
-git clone <this repo>
+git clone https://github.com/pieterhielkema/Sonrisa.git
 cd Sonrisa
 scripts/fetch_cef.sh          # downloads CEF binaries (~250 MB) + builds the wrapper
 xcodebuild -project Sonrisa.xcodeproj -scheme Sonrisa -configuration Debug build
