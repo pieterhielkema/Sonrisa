@@ -309,7 +309,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         // GetURL Apple Event (real link clicks) — forwarded cross-process
         // just before that instance exits.
         DistributedNotificationCenter.default().addObserver(
-            forName: Notification.Name("com.timodogroup.Sonrisa.relaunch-urls"),
+            forName: Notification.Name("nl.pieterhielkema.Sonrisa.relaunch-urls"),
             object: nil, queue: .main
         ) { note in
             guard let joined = note.object as? String else { return }
@@ -361,7 +361,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 .joined(separator: "\n")
             if !joined.isEmpty {
                 DistributedNotificationCenter.default().postNotificationName(
-                    Notification.Name("com.timodogroup.Sonrisa.relaunch-urls"),
+                    Notification.Name("nl.pieterhielkema.Sonrisa.relaunch-urls"),
                     object: joined, userInfo: nil, deliverImmediately: true)
             }
             DispatchQueue.main.async { exit(0) }

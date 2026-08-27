@@ -12,7 +12,7 @@ Context re-bills every turn. Keep tool output and pastes tiny.
 
 - App: `xcodebuild -project Sonrisa.xcodeproj -scheme Sonrisa -configuration Debug build` (pipe `| tail -4`).
 - CEF helper is built separately by `scripts/embed_cef.sh <app>` — Xcode skips it when only `helper/helper_main.mm` changed, so run it manually after helper edits.
-- Bundle id: `com.timodogroup.Sonrisa`.
+- Bundle id: `nl.pieterhielkema.Sonrisa`.
 
 # Architecture (one-liners)
 

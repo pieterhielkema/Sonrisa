@@ -68,7 +68,7 @@ make_helper() {
 <plist version="1.0">
 <dict>
   <key>CFBundleExecutable</key><string>${name}</string>
-  <key>CFBundleIdentifier</key><string>com.timodogroup.Sonrisa.helper${bundle_id_suffix:+.$bundle_id_suffix}</string>
+  <key>CFBundleIdentifier</key><string>nl.pieterhielkema.Sonrisa.helper${bundle_id_suffix:+.$bundle_id_suffix}</string>
   <key>CFBundleName</key><string>${name}</string>
   <key>CFBundleDisplayName</key><string>${name}</string>
   <key>CFBundlePackageType</key><string>APPL</string>

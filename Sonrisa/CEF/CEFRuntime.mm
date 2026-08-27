@@ -384,7 +384,7 @@ void SonrisaRunWhenCefContextInitialized(void (^block)(void)) {
         }
         if (urls.count > 0) {
             [NSDistributedNotificationCenter.defaultCenter
-                postNotificationName:@"com.timodogroup.Sonrisa.relaunch-urls"
+                postNotificationName:@"nl.pieterhielkema.Sonrisa.relaunch-urls"
                               object:[urls componentsJoinedByString:@"\n"]
                             userInfo:nil
                   deliverImmediately:YES];
